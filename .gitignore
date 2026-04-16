@@ -1,0 +1,13 @@
+# Secret keys — NEVER push this
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Uploaded PDFs (local storage)
+data/pdfs/
+
+# VS Code
+.vscode/

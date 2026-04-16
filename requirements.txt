@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-dotenv
+langchain
+langchain-community
+faiss-cpu
+huggingface-hub
+sentence-transformers
+pypdf
+PyPDF2
