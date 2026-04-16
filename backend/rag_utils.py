@@ -289,7 +289,7 @@ def load_retriever(user_id):
 
     )
 
-    print(f"✅ Retriever loaded for user: {user_id}")
+    print(f"SUCCESS: Retriever loaded for user: {user_id}")
 
     return retriever
 

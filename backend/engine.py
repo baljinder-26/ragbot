@@ -136,7 +136,7 @@ from langchain_core.prompts import PromptTemplate
 from huggingface_hub import InferenceClient
 
 # Import RAG helpers
-from rag_utils import get_context
+from backend.rag_utils import get_context
 
 
 # ------------------------

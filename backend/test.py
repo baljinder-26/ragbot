@@ -1,4 +1,4 @@
-from backend import ask_bot
+from backend.engine import chat
 
 history = []
 
@@ -9,9 +9,9 @@ while True:
     if user_input == "exit":
         break
 
-    reply = ask_bot(
+    reply = chat(
         user_input,
-        history
+        "test_user"
     )
 
     print("Bot:", reply)

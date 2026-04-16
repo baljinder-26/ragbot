@@ -574,7 +574,7 @@ def ensure_collection():
 
             )
 
-            print("✅ Collection created")
+            print("SUCCESS: Collection created")
 
         # Create metadata.user_id index (LangChain nests metadata under 'metadata.*')
         client.create_payload_index(
@@ -587,7 +587,7 @@ def ensure_collection():
 
         )
 
-        print("✅ user_id index ready")
+        print("SUCCESS: user_id index ready")
 
     except Exception as e:
 
@@ -656,7 +656,7 @@ def create_faiss_from_pdf(
 
     )
 
-    print("✅ PDF stored in Qdrant")
+    print("SUCCESS: PDF stored in Qdrant")
 
     return True
 
@@ -709,7 +709,7 @@ def list_pdfs(user_id):
 
                 files.add(source)
 
-        print("📄 Files found:", files)
+        print("FILES: Files found:", files)
 
     except Exception as e:
 
@@ -771,7 +771,7 @@ def delete_pdf(
 
         )
 
-        print(f"🗑 Deleted {filename}")
+        print(f"DELETED: {filename}")
 
         return True
 
@@ -816,7 +816,7 @@ def delete_all_pdfs(user_id):
 
         )
 
-        print("🧹 User PDFs deleted")
+        print("CLEANUP: User PDFs deleted")
 
         return True
 
@@ -861,7 +861,7 @@ def clear_database(user_id):
 
         )
 
-        print("🧹 User database cleared")
+        print("CLEANUP: User database cleared")
 
         return True
 
