@@ -1,24 +1,30 @@
+print("🚀 STARTING BACKEND...")
 
-from fastapi import FastAPI, UploadFile, File
+import os
+from dotenv import load_dotenv
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from fastapi import Form
-from dotenv import load_dotenv
-import os
 
 load_dotenv()
-# Chat Logic
-from engine import chat
 
-# PDF Utilities
-from pdf_utils import (
+try:
+    from engine import chat
+    from pdf_utils import (
     save_uploaded_pdf,
     create_faiss_from_pdf,
     delete_pdf,
     delete_all_pdfs,
     clear_database,
     list_pdfs
-)
+    )
+except Exception as e:
+    print(f"❌ CRITICAL IMPORT ERROR: {e}")
+    # Show more details about which file failed
+    import traceback
+    traceback.print_exc()
+    raise e
+
 
 
 # ------------------------
