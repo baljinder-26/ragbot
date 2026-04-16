@@ -225,17 +225,17 @@ COLLECTION_NAME = "pdf_docs"
 # Embeddings Model
 # ------------------------
 
-embeddings = HuggingFaceEmbeddings(
+# Lazy-loaded — only initialized on first use to save startup memory
+_embeddings = None
 
-    model_name="sentence-transformers/all-MiniLM-L6-v2",
-
-    encode_kwargs={
-
-        "normalize_embeddings": True
-
-    }
-
-)
+def get_embeddings():
+    global _embeddings
+    if _embeddings is None:
+        _embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            encode_kwargs={"normalize_embeddings": True}
+        )
+    return _embeddings
 
 
 # ------------------------
@@ -250,7 +250,7 @@ def load_retriever(user_id):
 
         collection_name=COLLECTION_NAME,
 
-        embedding=embeddings
+        embedding=get_embeddings()
 
     )
 

@@ -541,9 +541,16 @@ os.makedirs(PDF_FOLDER, exist_ok=True)
 # Embeddings
 # ------------------------
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+# Lazy-loaded — only initialized on first use to save startup memory
+_embeddings = None
+
+def get_embeddings():
+    global _embeddings
+    if _embeddings is None:
+        _embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+    return _embeddings
 
 
 # ------------------------
@@ -640,7 +647,7 @@ def create_faiss_from_pdf(
 
         documents=chunks,
 
-        embedding=embeddings,
+        embedding=get_embeddings(),
 
         url=QDRANT_URL,
         api_key=QDRANT_API_KEY,
