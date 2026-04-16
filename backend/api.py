@@ -8,7 +8,7 @@ import os
 
 load_dotenv()
 # Chat Logic
-from backend import chat
+from engine import chat
 
 # PDF Utilities
 from pdf_utils import (
