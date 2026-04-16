@@ -98,10 +98,13 @@
 #     return response.json()
 
 
+import os
 import requests
-import streamlit as st  
+import streamlit as st
 
-BASE_URL = "http://127.0.0.1:8000"
+# Local: http://127.0.0.1:8000
+# Cloud: set BACKEND_URL in Streamlit Cloud Secrets
+BASE_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
 
 
 # ------------------------
