@@ -17,3 +17,4 @@ python-multipart
 streamlit
 pydantic-settings
 uuid-utils
+SpeechRecognition
