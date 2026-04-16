@@ -12,12 +12,3 @@ services:
       - key: HF_TOKEN
         sync: false
 
-  - type: web
-    name: ragbot-ui
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run ui/app.py --server.port $PORT --server.address 0.0.0.0
-    envVars:
-      - key: BACKEND_URL
-        sync: false
-
