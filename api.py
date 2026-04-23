@@ -71,3 +71,7 @@ async def clear_db(user_id: str = Form(...)):
     from backend.pdf_utils import clear_database
     success = clear_database(user_id)
     return {"message": "Success" if success else "Failed"}
+
+
+
+

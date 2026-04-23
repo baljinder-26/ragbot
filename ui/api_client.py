@@ -1,103 +1,3 @@
-# import requests
-
-# BASE_URL = "http://127.0.0.1:8000"
-
-
-# # ------------------------
-# # Chat API
-# # ------------------------
-
-# def send_message(message):
-
-#     url = f"{BASE_URL}/chat"
-
-#     response = requests.post(
-#         url,
-#         json={"message": message}
-#     )
-
-#     return response.json()["response"]
-
-
-# # ------------------------
-# # Upload PDF
-# # ------------------------
-
-# def upload_pdf(file):
-
-#     url = f"{BASE_URL}/upload-pdf"
-
-#     files = {
-#         "file": (
-#             file.name,
-#             file,
-#             "application/pdf"
-#         )
-#     }
-
-#     response = requests.post(
-#         url,
-#         files=files
-#     )
-
-#     return response.json()
-
-
-# # ------------------------
-# # List PDFs
-# # ------------------------
-
-# def list_pdfs():
-
-#     url = f"{BASE_URL}/list-pdfs"
-
-#     response = requests.get(url)
-
-#     return response.json()["files"]
-
-
-# # ------------------------
-# # Delete Single PDF
-# # ------------------------
-
-# def delete_pdf(filename):
-
-#     url = f"{BASE_URL}/delete-pdf"
-
-#     response = requests.post(
-#         url,
-#         json={"filename": filename}
-#     )
-
-#     return response.json()
-
-
-# # ------------------------
-# # Delete All PDFs
-# # ------------------------
-
-# def delete_all_pdfs():
-
-#     url = f"{BASE_URL}/delete-all-pdfs"
-
-#     response = requests.post(url)
-
-#     return response.json()
-
-
-# # ------------------------
-# # Clear Database
-# # ------------------------
-
-# def clear_database():
-
-#     url = f"{BASE_URL}/clear-database"
-
-#     response = requests.post(url)
-
-#     return response.json()
-
-
 import os
 import requests
 import streamlit as st
@@ -105,7 +5,6 @@ import streamlit as st
 # Local: http://127.0.0.1:8000
 # Cloud: set BACKEND_URL in Streamlit Cloud Secrets
 BASE_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
-
 
 # ------------------------
 # Chat API
@@ -229,4 +128,4 @@ def clear_database():
         )
         return response.json()
     except Exception:
-        return {"message": "Failed"}
+        return {"message": "Failed"}
