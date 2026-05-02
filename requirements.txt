@@ -17,5 +17,5 @@ python-multipart
 streamlit
 pydantic-settings
 uuid-utils
-SpeechRecognitionf a s t e m b e d  
- 
+SpeechRecognition
+fastembed
